@@ -29,4 +29,25 @@ public class Args {
         });
         return keyValuePairs;
     }
+
+    public Object getValueOf(String flag){
+        List<KeyValuePair> keyValuePairs=scan();
+        for(int i = 0; i < keyValuePairs.size();i++){
+            if(keyValuePairs.get(i).getKey().equals(flag)){
+                Object value=keyValuePairs.get(i).getValue();
+                if (flag.equals("l")) {
+                    return Boolean.parseBoolean(String.valueOf(value));
+                }
+                if (flag.equals("p")) {
+                    return Integer.parseInt(String.valueOf(value));
+                }
+                if (flag.equals("d")) {
+                    return String.valueOf(String.valueOf(value));
+                }
+            }
+        }
+        return null;
+    }
+
+
 }
