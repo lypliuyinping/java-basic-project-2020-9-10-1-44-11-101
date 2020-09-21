@@ -38,4 +38,14 @@ public class ArgsTest {
         assertTrue(keyValuePair.contains(new KeyValuePair("p","8080")));
         assertTrue(keyValuePair.contains(new KeyValuePair("d","/usr/logs")));
     }
+    @Test
+    public void should_return_boolean_true_when_given_l() {
+        //given
+        String argsText="-l true -p 8080 -d /usr/logs";
+        Args args=new Args(argsText);
+        //when
+        Object value=args.getValueOf("l");
+        //then
+        assertEquals(true,value);
+    }
 }
